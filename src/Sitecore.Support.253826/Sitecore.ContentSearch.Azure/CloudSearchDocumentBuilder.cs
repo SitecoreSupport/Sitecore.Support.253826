@@ -12,12 +12,6 @@
 
     protected override void AddField(IIndexableDataField field)
     {
-      if (string.IsNullOrEmpty(field.Name))
-      {
-        CrawlingLog.Log.Warn($"[Index={this.Index.Name}] '{field.Id}' field of '{this.Indexable.Id}' item is skipped: the field name is missed.");
-        return;
-      }
-
       var fieldName = field.Name;
       var fieldValue = this.Index.Configuration.FieldReaders.GetFieldValue(field);
 
